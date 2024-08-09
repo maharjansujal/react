@@ -1,0 +1,40 @@
+.settingsContainer {
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .settingsGroup {
+    margin-bottom: 20px;
+  }
+  
+  .settingsGroup label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .settingsGroup select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #de0d56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #c00b4a;
+  }
+  

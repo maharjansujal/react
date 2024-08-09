@@ -1,30 +1,58 @@
-// src/components/Home.js
-import React, { useContext } from 'react';
-import { TransactionContext } from '../context/transactionContext';
+import React, { useState } from 'react';
+import styles from '../styles/settings.module.css';
 
-function Home() {
-  const { transactions } = useContext(TransactionContext);
+function Settings() {
+  const [currency, setCurrency] = useState('USD');
+  const [theme, setTheme] = useState('light');
+  const [language, setLanguage] = useState('English');
 
-  const totalIncome = transactions
-    .filter(t => t.type === 'Income')
-    .reduce((acc, t) => acc + t.amount, 0);
+  const handleCurrencyChange = (e) => {
+    setCurrency(e.target.value);
+  };
 
-  const totalExpenses = transactions
-    .filter(t => t.type === 'Expense')
-    .reduce((acc, t) => acc + t.amount, 0);
+  const handleThemeChange = (e) => {
+    setTheme(e.target.value);
+  };
 
-  const totalSavings = totalIncome - totalExpenses;
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+  const handleSaveSettings = () => {
+    alert(`Settings Saved:\nCurrency: ${currency}\nTheme: ${theme}\nLanguage: ${language}`);
+  };
 
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <div>
-        <h3>Total Income: ${totalIncome}</h3>
-        <h3>Total Expenses: ${totalExpenses}</h3>
-        <h3>Total Savings: ${totalSavings}</h3>
+    <div className={styles.settingsContainer}>
+      <h2>Settings</h2>
+      <div className={styles.settingsGroup}>
+        <label htmlFor="currency">Currency:</label>
+        <select id="currency" value={currency} onChange={handleCurrencyChange}>
+          <option value="USD">USD ($)</option>
+          <option value="EUR">EUR (€)</option>
+          <option value="GBP">GBP (£)</option>
+          <option value="INR">INR (₹)</option>
+        </select>
       </div>
+      <div className={styles.settingsGroup}>
+        <label htmlFor="theme">Theme:</label>
+        <select id="theme" value={theme} onChange={handleThemeChange}>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+      <div className={styles.settingsGroup}>
+        <label htmlFor="language">Language:</label>
+        <select id="language" value={language} onChange={handleLanguageChange}>
+          <option value="English">English</option>
+          <option value="Spanish">Spanish</option>
+          <option value="French">French</option>
+          <option value="German">German</option>
+        </select>
+      </div>
+      <button onClick={handleSaveSettings}>Save Settings</button>
     </div>
   );
 }
 
-export default Home;
+export default Settings;

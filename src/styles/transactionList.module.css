@@ -1,0 +1,62 @@
+.transactionListContainer {
+    margin: 20px;
+  }
+  
+  .transactionTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transactionTable th,
+  .transactionTable td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .transactionTable th {
+    background-color: #f4f4f4;
+  }
+  
+  .editButton,
+  .deleteButton,
+  .updateButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .editButton {
+    background-color: #007bff;
+    color: white;
+    border-radius: 15px;
+  }
+  
+  .editButton:hover {
+    background-color: green;
+  }
+  
+  .deleteButton {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 15px;
+  }
+  
+  .deleteButton:hover {
+    background-color: red;
+  }
+  
+  .editForm {
+    margin-top: 20px;
+  }
+  
+  .editInput {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

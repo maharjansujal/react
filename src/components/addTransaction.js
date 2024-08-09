@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TransactionContext } from '../context/transactionContext';
+import styles from '../styles/addTransaction.module.css';
 
 function AddTransaction() {
   const { setTransactions } = useContext(TransactionContext);
@@ -15,25 +16,31 @@ function AddTransaction() {
       type: amount >= 0 ? 'Income' : 'Expense',
     };
     setTransactions((prev) => [newTransaction, ...prev]);
+    setDescription('');
+    setAmount('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        placeholder="Description" 
-        value={description} 
-        onChange={(e) => setDescription(e.target.value)} 
+    <form onSubmit={handleSubmit} className={styles.transactionForm}>
+      <h1>Add new transaction</h1>
+      <input
+        type="text"
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        className={styles.transactionInput}
       />
-      <input 
-        type="number" 
-        placeholder="Amount" 
-        value={amount} 
-        onChange={(e) => setAmount(e.target.value)} 
+      <input
+        type="number"
+        placeholder="Amount"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        className={styles.transactionInput}
       />
-      <button type="submit">Add Transaction</button>
+      <button type="submit" className={styles.transactionButton}>
+        Add Transaction
+      </button>
     </form>
   );
 }
-
 export default AddTransaction;

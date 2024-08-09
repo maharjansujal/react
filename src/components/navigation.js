@@ -1,29 +1,28 @@
-// src/components/Navigation.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from '../styles/navigation.module.css';
 
 function Navigation() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+    <nav className={styles.navigationBar}>
+      <ul className={styles.navigationList}>
+        <li className={styles.navigationItem}>
+          <Link to="/" className={styles.navigationLink}>Home</Link>
         </li>
-        <li>
-          <Link to="/add-transaction">Add Transaction</Link>
+        <li className={styles.navigationItem}>
+          <Link to="/add-transaction" className={styles.navigationLink}>Add Transaction</Link>
         </li>
-        <li>
-          <Link to="/transactions">Transactions</Link>
+        <li className={styles.navigationItem}>
+          <Link to="/transactions" className={styles.navigationLink}>Transactions</Link>
         </li>
-        <li>
-          <Link to="/reports">Reports</Link>
+        <li className={styles.navigationItem}>
+          <Link to="/reports" className={styles.navigationLink}>Reports</Link>
         </li>
-        <li>
-          <Link to="/settings">Settings</Link>
+        <li className={styles.navigationItem}>
+          <Link to="/settings" className={styles.navigationLink}>Settings</Link>
         </li>
       </ul>
     </nav>
   );
 }
-
 export default Navigation;
